@@ -1,2 +1,2 @@
 # Independent-Study
-Linear Algebra, Matrix Methods, Statistics, Machine Learning, Diff Eqs, and Deep Learning
+Linear Algebra, Statistics, Machine Learning, Diff Eqs, and Deep Learning
