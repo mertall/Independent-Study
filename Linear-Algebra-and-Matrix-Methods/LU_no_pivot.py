@@ -36,8 +36,8 @@ def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
             factor=U[row_number][column_number]/U[column_number][column_number]
             # Take the row in our U, that corresponds to the column number we are currently observing
             modified_row=factor*U[column_number]
-            # Subtract the row with the entry we want to eliminate with the "conjugate" row, 
-            # the modified holds one value in the corresponding column to target elimination value that is "conjugate"
+            # To eliminate a value below the diagonal in a given column, 
+            # subtract a scaled version of the current row—whose diagonal element is assumed non-zero—from each lower row.
             U_new_row=U[row_number]-modified_row
             # Store new row in U
             U[row_number]=U_new_row
