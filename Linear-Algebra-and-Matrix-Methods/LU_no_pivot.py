@@ -33,6 +33,7 @@ def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
             # Observe value above entry we are trying to eliminate
             # If we are looking at a value in row 2, column 1, 
             # we need divide our current value by the value on the diagonal in same column
+            # NOTICE: if our diagonal entry is 0 here, we cannot proceed. We can fix this with partial pivoting.
             factor=U[row_number][column_number]/U[column_number][column_number]
             # Take the row in our U, that corresponds to the column number we are currently observing
             modified_row=factor*U[column_number]
