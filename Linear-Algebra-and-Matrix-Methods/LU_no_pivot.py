@@ -30,18 +30,23 @@ def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         row_below_diagonal=column_number+1
         # Loop across row values below diagonal
         for row_number in range(row_below_diagonal,i):
+            
             # Observe value above entry we are trying to eliminate
             # If we are looking at a value in row 2, column 1, 
             # we need divide our current value by the value on the diagonal in same column
             # NOTICE: if our diagonal entry is 0 here, we cannot proceed. We can fix this with partial pivoting.
             factor=U[row_number][column_number]/U[column_number][column_number]
+
             # Take the row in our U, that corresponds to the column number we are currently observing
             modified_row=factor*U[column_number]
+
             # To eliminate a value below the diagonal in a given column, 
             # subtract a scaled version of the current row—whose diagonal element is assumed non-zero—from each lower row.
             U_new_row=U[row_number]-modified_row
+
             # Store new row in U
             U[row_number]=U_new_row
+
             # Store factor in L
             L[row_number][column_number]=factor
 
