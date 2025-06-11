@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Tuple
 
-def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+def lu_with_pivot(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     '''
     LU Decomposition implementation in numpy, no pivoting
     
@@ -72,8 +72,6 @@ def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
 
     return (P, L,U)
 
-import numpy as np
-
 # This matrix has a zero in the (0,0) position — LU will fail without row swapping
 A_3x3=np.array([
     [0, 2, 3],
@@ -82,7 +80,7 @@ A_3x3=np.array([
 ], dtype=float)
 
 try:
-    P,L,U=LU(A_3x3)
+    P,L,U=lu_with_pivot(A_3x3)
     print(np.allclose(L @ U, P @ A_3x3))
 except ZeroDivisionError as e:
     print("LU failed on A_3x3 without pivoting:", e)
@@ -97,7 +95,7 @@ A_4x4 = np.array([
 
 
 try:
-    P,L,U=LU(A_4x4)
+    P,L,U=lu_with_pivot(A_4x4)
     print(np.allclose(L @ U, P @ A_4x4))
 except ZeroDivisionError as e:
     print("LU failed on A_4x4 without pivoting:", e)
@@ -112,7 +110,7 @@ A_5x5 = np.array([
 ], dtype=float)
 
 try:
-    P,L,U=LU(A_5x5)
+    P,L,U=lu_with_pivot(A_5x5)
     print(np.allclose(L @ U, P @ A_5x5))
 except ZeroDivisionError as e:
     print("LU failed on A_5x5 without pivoting:", e)

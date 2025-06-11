@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Tuple
 
-def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+def lu_no_pivot(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     '''
     LU Decomposition implementation in numpy, no pivoting
     
@@ -30,7 +30,7 @@ def LU(A: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         row_below_diagonal=column_number+1
         # Loop across row values below diagonal
         for row_number in range(row_below_diagonal,i):
-            
+
             # Observe value above entry we are trying to eliminate
             # If we are looking at a value in row 2, column 1, 
             # we need divide our current value by the value on the diagonal in same column
@@ -58,7 +58,7 @@ A_3x3 = np.array([
     [1, -2, 1]
 ], dtype=float)
 
-L,U =LU(A_3x3)
+L,U =lu_no_pivot(A_3x3)
 
 print(np.allclose(L @ U, A_3x3))
 
@@ -69,7 +69,7 @@ A_4x4 = np.array([
     [2, 4, 1, 7]
 ], dtype=float)
 
-L,U =LU(A_4x4)
+L,U =lu_no_pivot(A_4x4)
 
 print(np.allclose(L @ U, A_4x4))
 
@@ -81,7 +81,7 @@ A_5x5 = np.array([
     [3, 4, 2, 0, 9]
 ], dtype=float)
 
-L,U =LU(A_5x5)
+L,U =lu_no_pivot(A_5x5)
 
 print(np.allclose(L @ U, A_5x5))
 
